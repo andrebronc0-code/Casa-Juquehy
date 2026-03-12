@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Casa em Juquehy</title>
+<title>Oportunidade imobiliária em Juquehy</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header>
-<h1>Casa à Venda em Juquehy</h1>
-<p>Condomínio exclusivo no litoral norte</p>
+<h1>Casa à venda em Juquehy</h1>
+<p>Casa no litoral</p>
 </header>
 
-<section class="hero">
-<img src="imagens/fachada.jpg" alt="Casa em Juquehy">
-</section>
+<div class="slider">
 
-<section class="descricao">
+<img class="slide" src="imagens/fotofachada.jpg">
 
-<h2>Sobre o imóvel</h2>
+<button class="prev" onclick="mudarSlide(-1)">❮</button>
+<button class="next" onclick="mudarSlide(1)">❯</button>
 
-<p>
-Casa de condomínio com excelente padrão construtivo,
-ambientes amplos e ótima iluminação natural.
-</p>
+</div>
 
-<ul>
-<li>3 suítes</li>
-<li>Piscina</li>
-<li>Área gourmet</li>
-<li>2 vagas</li>
-</ul>
+<script>
 
-</section>
+let slideIndex = 1;
+mostrarSlide(slideIndex);
 
-<section class="galeria">
+function mudarSlide(n){
+mostrarSlide(slideIndex += n);
+}
 
-<h2>Galeria</h2>
+function mostrarSlide(n){
 
-<img src="imagens/sala.jpg">
-<img src="imagens/piscina.jpg">
+let slides = document.getElementsByClassName("slide");
 
-</section>
+if(n > slides.length){
+slideIndex = 1;
+}
 
-<footer>
+if(n < 1){
+slideIndex = slides.length;
+}
 
-<p>Gestão do imóvel: @ericabronca5800</p>
+for(let i = 0; i < slides.length; i++){
+slides[i].style.display = "none";
+}
 
-</footer>
+slides[slideIndex-1].style.display = "block";
+
+}
+
+</script>
 
 </body>
 </html>
